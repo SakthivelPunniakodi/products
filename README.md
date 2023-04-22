@@ -30,11 +30,16 @@ We used Mysql and Nodejs for the development.
 
 For Mysql, we free license from https://www.db4free.net/
 
-**Create Product**
+#**Create Product**
+
 **URL** : /product/create
+
 **Content Type** : JSON
+
 **Method** : POST
+
 **Note** : name and price is required field. 
+
 **Input** : {
     "name": "<sample product name>",
     "description":"<product description>",
@@ -45,19 +50,26 @@ For Mysql, we free license from https://www.db4free.net/
     "message": "Product inserted successfully."
 }
 
-**Delete Product**
+#**Delete Product**
+  
 **URL** : /product/delete?id=<any product id>
+  
 **Method** : DELETE
+  
 **Note** : id is required field (its a product id)
+  
 **Output** : {
     "issuccess": true,
     "message": "Product deleted successfully."
 }
 
-**Get Product**
+#**Get Product**
 **URL** : /product/get?id=<any product id>&currency=USD
+  
 **Method** : GET
+  
 **Note** : id is required field (its a product id) and currency is option (USD is default and allowed inputs are CAD,EUR,GBP,USD)
+  
 **Output** : {
     "issuccess": true,
     "data": {
@@ -74,10 +86,14 @@ For Mysql, we free license from https://www.db4free.net/
     "message": "Retrieve Product successfully."
 }
 
-**Get Most viewed Products**
+#**Get Most viewed Products**
+  
 **URL** : /product/mostviewed?count=1
+  
 **Method** : GET
+  
 **Note** : count is optional (default value is 5)
+  
 **Output** : {
     "issuccess": true,
     "message": "Most viewed prodcuts.",
