@@ -30,7 +30,7 @@ We used Mysql and Nodejs for the development.
 
 For Mysql, we free license from https://www.db4free.net/
 
-#**Create Product**
+# **Create Product**
 
 **URL** : /product/create
 
@@ -45,12 +45,13 @@ For Mysql, we free license from https://www.db4free.net/
     "description":"<product description>",
     "price": 111
 }
+  
 **output** : {
     "issuccess": true,
     "message": "Product inserted successfully."
 }
 
-#**Delete Product**
+# **Delete Product**
   
 **URL** : /product/delete?id=<any product id>
   
@@ -63,7 +64,7 @@ For Mysql, we free license from https://www.db4free.net/
     "message": "Product deleted successfully."
 }
 
-#**Get Product**
+# **Get Product**
 **URL** : /product/get?id=<any product id>&currency=USD
   
 **Method** : GET
@@ -86,7 +87,7 @@ For Mysql, we free license from https://www.db4free.net/
     "message": "Retrieve Product successfully."
 }
 
-#**Get Most viewed Products**
+# **Get Most viewed Products**
   
 **URL** : /product/mostviewed?count=1
   
