@@ -19,3 +19,4 @@ let server = app.listen(port, host, function () {
 
 server.setTimeout(1500000);
 server.keepAliveTimeout = 60000;
+module.exports = server
