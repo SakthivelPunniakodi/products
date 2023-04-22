@@ -1,0 +1,8 @@
+{
+    "mysql": {
+        "host"     : "db4free.net",
+        "user"     : "user_admin123",
+        "password" : "user_admin123",
+        "database" : "prod_123"
+      }
+}
