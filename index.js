@@ -1,12 +1,13 @@
-// const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('./swagger.json');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 const { app } = require("./config/lib/express.js");
 const config = require("./config/config.json");
+const fs=require('fs');
+const customCss = fs.readFileSync((process.cwd()+"/swagger.css"), 'utf8');
 global.config = config;
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
-//routers added
-// app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
 const router = require("./router/router.js");
 app.use(router);
 

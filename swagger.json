@@ -1,0 +1,294 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Products API",
+        "contact": {
+            "email": "abc@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:7070",
+    "basePath": "/product",
+    "paths" : {
+        "/create" : {
+            "post" : {
+                "summary" : "Product Creation",
+                "description": "Create the new Product",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "task object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "price": {
+                                    "type": "integer"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New product created successful",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/createProduct"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/delete" : {
+            "delete" : {
+                "summary" : "Delete the product",
+                "description": "Delete the product",
+                "produces": ["application/json"],
+                "parameters": [
+                    {  
+                        "name":"id",
+                        "in":"query",
+                        "description":"product id that needs to be deleted",
+                        "required":true,
+                        "type":"integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successfully product deleted",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/productResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/get" : {
+            "get" : {
+                "summary" : "Get  the products",
+                "description": "Get  the products",
+                "produces": ["application/json"],
+                "parameters": [
+                    {  
+                        "name":"id",
+                        "in":"query",
+                        "description":"product id ",
+                        "required":true,
+                        "type":"integer"
+                    },
+                    {
+                        
+                        "name":"currency",
+                        "in":"query",
+                        "description":"currency need to be viewed",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get  the products",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/getAllResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/mostviewed" : {
+            "get" : {
+                "summary" : "mostviewed the product",
+                "description": "mostviewed the product",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "mostviewed the product",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/mostviewedResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+       
+        "productResponse": {
+            "type": "object",
+            "properties": {
+                "issuccess": {
+                     "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "createProduct": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "issuccess": {
+                     "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        },
+        "mostviewedResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                     "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "viewed": {
+                    "type": "string"
+                },
+                "isactive": {
+                    "type": "string"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "updatedby": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                }
+            }
+        },
+        "currencydata": {
+            "type": "object",
+            "properties": {
+                "id": {
+                     "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "viewed": {
+                    "type": "string"
+                },
+                "isactive": {
+                    "type": "string"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "updatedby": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                }
+            }
+        },
+        "getAllResponse": {
+            "type": "object",
+            "properties": {
+                "issuccess": {
+                     "type": "string"
+                },
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "data" : {
+                            "type":"object",
+                            "$ref": "#/definitions/currencydata"
+                        } 
+                    }
+                }
+            }
+        }
+    }
+}
